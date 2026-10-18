@@ -1,0 +1,1280 @@
+window.SEED_CLASSES = [
+  {
+    "id": "tclshf-1",
+    "name": "TCLSHF-1",
+    "level": "Tronc Commun Lettres et Sciences Humaines- Option Français",
+    "year": "2026/2027",
+    "subject": "Informatique",
+    "source": "export_notesCC_TCLSHF-1_0030.xlsx",
+    "students": [
+      {
+        "id": "11201704",
+        "massar": "F160084097",
+        "name": "ED DABBAB Mariame",
+        "birthDate": "15/08/2010"
+      },
+      {
+        "id": "11339782",
+        "massar": "F161118507",
+        "name": "NBIRI ISMAIL",
+        "birthDate": "09/02/2010"
+      },
+      {
+        "id": "11182537",
+        "massar": "F162080151",
+        "name": "MENDIL MOHAMED",
+        "birthDate": "02/02/2010"
+      },
+      {
+        "id": "11329028",
+        "massar": "F162115641",
+        "name": "lafsahi omar",
+        "birthDate": "01/06/2010"
+      },
+      {
+        "id": "11452726",
+        "massar": "F164142096",
+        "name": "ABRIBRA AYA",
+        "birthDate": "31/05/2010"
+      },
+      {
+        "id": "11117979",
+        "massar": "F165067152",
+        "name": "EL HOR ABDERAHMANE",
+        "birthDate": "17/08/2010"
+      },
+      {
+        "id": "11209545",
+        "massar": "F165085430",
+        "name": "LAMHAOUI AICHA",
+        "birthDate": "05/12/2009"
+      },
+      {
+        "id": "11479714",
+        "massar": "F165147274",
+        "name": "MOUSTAKIM ZAYNAB",
+        "birthDate": "21/01/2011"
+      },
+      {
+        "id": "11116726",
+        "massar": "F166066921",
+        "name": "AGHZIOUINE ZAYNAB",
+        "birthDate": "19/08/2010"
+      },
+      {
+        "id": "11432340",
+        "massar": "F166138280",
+        "name": "KAOUJ HIBA",
+        "birthDate": "05/01/2010"
+      },
+      {
+        "id": "11452729",
+        "massar": "F166142099",
+        "name": "ABOUZAHID SANAE",
+        "birthDate": "21/01/2011"
+      },
+      {
+        "id": "11174670",
+        "massar": "F168078401",
+        "name": "ZEMMAL KHADIJA",
+        "birthDate": "15/02/2010"
+      },
+      {
+        "id": "12583571",
+        "massar": "F170175332",
+        "name": "EZAITOUNI KHADIJA",
+        "birthDate": "29/10/2011"
+      },
+      {
+        "id": "11821259",
+        "massar": "F171065776",
+        "name": "lafssahi khadija",
+        "birthDate": "07/02/2012"
+      },
+      {
+        "id": "12273523",
+        "massar": "F172120189",
+        "name": "ESSAADI HIBA",
+        "birthDate": "19/09/2011"
+      },
+      {
+        "id": "12330286",
+        "massar": "F172128205",
+        "name": "GHAOUNI MOHAMMED",
+        "birthDate": "12/11/2010"
+      },
+      {
+        "id": "11821248",
+        "massar": "F173065772",
+        "name": "khayat mourad",
+        "birthDate": "09/01/2011"
+      },
+      {
+        "id": "12572530",
+        "massar": "F173172930",
+        "name": "KHRIBACH AYA",
+        "birthDate": "08/07/2011"
+      },
+      {
+        "id": "12441497",
+        "massar": "F174145185",
+        "name": "Younes Hassan",
+        "birthDate": "06/11/2011"
+      },
+      {
+        "id": "12560921",
+        "massar": "F176170115",
+        "name": "EL HARCH DRISS",
+        "birthDate": "06/08/2011"
+      },
+      {
+        "id": "11934829",
+        "massar": "F177077242",
+        "name": "Kibou maryame",
+        "birthDate": "13/08/2011"
+      },
+      {
+        "id": "12634261",
+        "massar": "F177187034",
+        "name": "LAZRAG YOUSSEF",
+        "birthDate": "23/04/2011"
+      },
+      {
+        "id": "12634267",
+        "massar": "F177187040",
+        "name": "ANHAILI SOUKAINA",
+        "birthDate": "15/08/2011"
+      },
+      {
+        "id": "12330320",
+        "massar": "F178128209",
+        "name": "GHOUNY OMAR",
+        "birthDate": "14/06/2010"
+      },
+      {
+        "id": "12363845",
+        "massar": "F179133207",
+        "name": "ELMAMOUNI SANAE",
+        "birthDate": "25/05/2011"
+      },
+      {
+        "id": "12570644",
+        "massar": "F179172446",
+        "name": "EL HAKIKI MALAK",
+        "birthDate": "08/03/2012"
+      },
+      {
+        "id": "3192769",
+        "massar": "K132418008",
+        "name": "el mir youssef",
+        "birthDate": "20/10/2007"
+      },
+      {
+        "id": "7118864",
+        "massar": "K139514274",
+        "name": "elmanany marouan",
+        "birthDate": "10/12/2007"
+      },
+      {
+        "id": "9544056",
+        "massar": "K140092320",
+        "name": "AMARI KAMAL",
+        "birthDate": "30/07/2008"
+      },
+      {
+        "id": "9281964",
+        "massar": "K142072148",
+        "name": "EL KOUDI MOHAMMED",
+        "birthDate": "18/08/2008"
+      },
+      {
+        "id": "9438735",
+        "massar": "K147083401",
+        "name": "MAMOUR AYA",
+        "birthDate": "15/05/2008"
+      },
+      {
+        "id": "9639156",
+        "massar": "K148103467",
+        "name": "AKKIL MOHAMED",
+        "birthDate": "14/04/2008"
+      },
+      {
+        "id": "9541912",
+        "massar": "K149091995",
+        "name": "BOUKHARROBA ABDELKHALEK",
+        "birthDate": "16/06/2008"
+      },
+      {
+        "id": "10536132",
+        "massar": "K150051200",
+        "name": "Kandal Saad",
+        "birthDate": "31/10/2009"
+      },
+      {
+        "id": "10210539",
+        "massar": "K153024875",
+        "name": "ELMAALY NOURA",
+        "birthDate": "25/09/2009"
+      },
+      {
+        "id": "10539436",
+        "massar": "K153051521",
+        "name": "DHAFIR AYA",
+        "birthDate": "15/03/2010"
+      },
+      {
+        "id": "10269001",
+        "massar": "K155029523",
+        "name": "KHOUBI ACHRAF",
+        "birthDate": "03/03/2010"
+      },
+      {
+        "id": "10372551",
+        "massar": "K156037854",
+        "name": "ELAZRI FATIMA EZZAHRA",
+        "birthDate": "22/09/2009"
+      },
+      {
+        "id": "80743",
+        "massar": "R149133721",
+        "name": "BADAOUI YOUSSEF",
+        "birthDate": "08/03/2009"
+      }
+    ],
+    "controls": [],
+    "sessions": []
+  },
+  {
+    "id": "tclshf-2",
+    "name": "TCLSHF-2",
+    "level": "Tronc Commun Lettres et Sciences Humaines- Option Français",
+    "year": "2026/2027",
+    "subject": "Informatique",
+    "source": "export_notesCC_TCLSHF-2_0030.xlsx",
+    "students": [
+      {
+        "id": "11439560",
+        "massar": "F160139535",
+        "name": "RACHAD KHADIJA",
+        "birthDate": "17/08/2010"
+      },
+      {
+        "id": "11493742",
+        "massar": "F161148567",
+        "name": "ROUANI KHADIJA",
+        "birthDate": "16/01/2011"
+      },
+      {
+        "id": "11506027",
+        "massar": "F165149512",
+        "name": "Morghad Anass",
+        "birthDate": "20/03/2011"
+      },
+      {
+        "id": "11291897",
+        "massar": "F166106309",
+        "name": "essahli bouchaib",
+        "birthDate": "12/03/2010"
+      },
+      {
+        "id": "11432347",
+        "massar": "F166138287",
+        "name": "AFFOINE LAILA",
+        "birthDate": "01/02/2010"
+      },
+      {
+        "id": "11436565",
+        "massar": "F166139051",
+        "name": "SASSOUN HIBA",
+        "birthDate": "02/12/2009"
+      },
+      {
+        "id": "11246553",
+        "massar": "F169094683",
+        "name": "RABAA HAJAR",
+        "birthDate": "24/09/2010"
+      },
+      {
+        "id": "11339975",
+        "massar": "F169118553",
+        "name": "KAIDI AICHA",
+        "birthDate": "01/01/2010"
+      },
+      {
+        "id": "11429897",
+        "massar": "F169137712",
+        "name": "ERR0KKS AMINE",
+        "birthDate": "14/01/2010"
+      },
+      {
+        "id": "12143535",
+        "massar": "F170101988",
+        "name": "EL HAMRANY YOUSSEF",
+        "birthDate": "29/08/2011"
+      },
+      {
+        "id": "12419493",
+        "massar": "F170141114",
+        "name": "ISMAILY SOUFIANE",
+        "birthDate": "16/02/2012"
+      },
+      {
+        "id": "12570662",
+        "massar": "F170172454",
+        "name": "EL FORI HIBA",
+        "birthDate": "19/03/2012"
+      },
+      {
+        "id": "12583630",
+        "massar": "F170175340",
+        "name": "EL MAGRI KHAIJAD",
+        "birthDate": "06/06/2011"
+      },
+      {
+        "id": "12143832",
+        "massar": "F172101999",
+        "name": "EZZAMZAMI TARIK",
+        "birthDate": "19/12/2010"
+      },
+      {
+        "id": "12190512",
+        "massar": "F174108976",
+        "name": "HASNAE SAHMANE",
+        "birthDate": "05/08/2011"
+      },
+      {
+        "id": "12273345",
+        "massar": "F177131765",
+        "name": "JAAF AMINA",
+        "birthDate": "01/08/2011"
+      },
+      {
+        "id": "12570552",
+        "massar": "F177172419",
+        "name": "ELGHOUTAMI KAOUTAR",
+        "birthDate": "12/06/2011"
+      },
+      {
+        "id": "12273548",
+        "massar": "F178120206",
+        "name": "chaarani mohammed",
+        "birthDate": "04/11/2011"
+      },
+      {
+        "id": "12327704",
+        "massar": "F178127763",
+        "name": "Halouach Aicha",
+        "birthDate": "27/01/2011"
+      },
+      {
+        "id": "12328049",
+        "massar": "F179127804",
+        "name": "Selloum Mohammed",
+        "birthDate": "30/03/2012"
+      },
+      {
+        "id": "12330335",
+        "massar": "F179128213",
+        "name": "ELMADINI ZAYNAB",
+        "birthDate": "10/03/2010"
+      },
+      {
+        "id": "2868593",
+        "massar": "K131430072",
+        "name": "LABID CHAIBIA",
+        "birthDate": "20/02/2008"
+      },
+      {
+        "id": "4061289",
+        "massar": "K138495232",
+        "name": "zahid hamza",
+        "birthDate": "09/11/2007"
+      },
+      {
+        "id": "9570048",
+        "massar": "K140094391",
+        "name": "ELKHALIDY OUSSAMA",
+        "birthDate": "11/11/2008"
+      },
+      {
+        "id": "9281951",
+        "massar": "K142072135",
+        "name": "ERRAMMALI MOURAD",
+        "birthDate": "30/06/2008"
+      },
+      {
+        "id": "9544040",
+        "massar": "K142092304",
+        "name": "HABANI ABDELKADER",
+        "birthDate": "23/04/2008"
+      },
+      {
+        "id": "9591755",
+        "massar": "K143096752",
+        "name": "KANTAOUI HAMZA",
+        "birthDate": "05/01/2009"
+      },
+      {
+        "id": "9472961",
+        "massar": "K144086461",
+        "name": "bel guelssa kaoutar",
+        "birthDate": "11/10/2008"
+      },
+      {
+        "id": "1568167",
+        "massar": "K149046854",
+        "name": "DDAZI ISLAM",
+        "birthDate": "14/02/2008"
+      },
+      {
+        "id": "9591192",
+        "massar": "K149096664",
+        "name": "YACIR OUSSAMA",
+        "birthDate": "09/05/2007"
+      },
+      {
+        "id": "10488194",
+        "massar": "K150046865",
+        "name": "ENNADIRI ZAKARIYA",
+        "birthDate": "20/12/2009"
+      },
+      {
+        "id": "10409738",
+        "massar": "K153040396",
+        "name": "ENNOUAIMI DOUNIA",
+        "birthDate": "18/10/2009"
+      },
+      {
+        "id": "10419078",
+        "massar": "K154041184",
+        "name": "ELASKRI YASSINE",
+        "birthDate": "04/06/2009"
+      },
+      {
+        "id": "10237063",
+        "massar": "K155027292",
+        "name": "HANANI YOUNESS",
+        "birthDate": "27/05/2009"
+      },
+      {
+        "id": "10418746",
+        "massar": "K155041131",
+        "name": "lafsahi hamza",
+        "birthDate": "01/01/2009"
+      },
+      {
+        "id": "10153735",
+        "massar": "K156020377",
+        "name": "essahili fadoua",
+        "birthDate": "25/01/2009"
+      },
+      {
+        "id": "10243350",
+        "massar": "K156027664",
+        "name": "ZADANE MOUNIR",
+        "birthDate": "11/05/2009"
+      },
+      {
+        "id": "10408719",
+        "massar": "K156040249",
+        "name": "HAIRATE BRAHIM",
+        "birthDate": "11/12/2009"
+      },
+      {
+        "id": "10408704",
+        "massar": "K157040248",
+        "name": "KHALIL YOUSSEF",
+        "birthDate": "03/02/2010"
+      },
+      {
+        "id": "10333433",
+        "massar": "K158034981",
+        "name": "ADDOUAJI YAMNA",
+        "birthDate": "14/10/2009"
+      },
+      {
+        "id": "10269012",
+        "massar": "K159029534",
+        "name": "KHRIBACHE HIBA",
+        "birthDate": "09/05/2009"
+      },
+      {
+        "id": "10271660",
+        "massar": "K159029856",
+        "name": "ANAINIA KHADIJA",
+        "birthDate": "01/09/2009"
+      }
+    ],
+    "controls": [],
+    "sessions": []
+  },
+  {
+    "id": "tclshf-3",
+    "name": "TCLSHF-3",
+    "level": "Tronc Commun Lettres et Sciences Humaines- Option Français",
+    "year": "2026/2027",
+    "subject": "Informatique",
+    "source": "export_notesCC_TCLSHF-3_0030.xlsx",
+    "students": [
+      {
+        "id": "11466850",
+        "massar": "F160144626",
+        "name": "KOTFI AZIZA",
+        "birthDate": "11/12/2010"
+      },
+      {
+        "id": "11432367",
+        "massar": "F161138307",
+        "name": "ELMASLOUHI OTHMANE",
+        "birthDate": "26/05/2010"
+      },
+      {
+        "id": "11506091",
+        "massar": "F162149534",
+        "name": "Lazrak Ghizlane",
+        "birthDate": "12/08/2010"
+      },
+      {
+        "id": "11223283",
+        "massar": "F163088423",
+        "name": "ELHAMZAOUI YOUSSEF",
+        "birthDate": "26/04/2010"
+      },
+      {
+        "id": "11329044",
+        "massar": "F163115651",
+        "name": "zoubir abdessamad",
+        "birthDate": "10/02/2011"
+      },
+      {
+        "id": "11452718",
+        "massar": "F163142088",
+        "name": "LAKHAL NOURA",
+        "birthDate": "28/02/2011"
+      },
+      {
+        "id": "11209579",
+        "massar": "F164085446",
+        "name": "EL HAJJY FOUAD",
+        "birthDate": "10/02/2010"
+      },
+      {
+        "id": "11452723",
+        "massar": "F164142093",
+        "name": "ABBOUD SOUKAINA",
+        "birthDate": "29/08/2010"
+      },
+      {
+        "id": "11221716",
+        "massar": "F165087974",
+        "name": "ELMAZINY ABDELILAH",
+        "birthDate": "24/10/2010"
+      },
+      {
+        "id": "11432339",
+        "massar": "F166138279",
+        "name": "MAJDOUB SAMIRA",
+        "birthDate": "30/05/2010"
+      },
+      {
+        "id": "11432361",
+        "massar": "F166138301",
+        "name": "HARMOUCHI AISSA",
+        "birthDate": "13/11/2010"
+      },
+      {
+        "id": "11470898",
+        "massar": "F166145294",
+        "name": "LAKHAL FATIMA EZZAHRA",
+        "birthDate": "01/08/2009"
+      },
+      {
+        "id": "11432364",
+        "massar": "F167138304",
+        "name": "AFFOINE MUSTAPHA",
+        "birthDate": "17/07/2010"
+      },
+      {
+        "id": "11339751",
+        "massar": "F168118496",
+        "name": "ADOUALI RAJAE",
+        "birthDate": "19/04/2010"
+      },
+      {
+        "id": "11429882",
+        "massar": "F169137697",
+        "name": "ELGORCH SANAE",
+        "birthDate": "19/08/2010"
+      },
+      {
+        "id": "12331395",
+        "massar": "F170128264",
+        "name": "manssour anas",
+        "birthDate": "31/08/2010"
+      },
+      {
+        "id": "11703371",
+        "massar": "F171058498",
+        "name": "EL GHADIF OTHMANE",
+        "birthDate": "29/09/2011"
+      },
+      {
+        "id": "12583582",
+        "massar": "F172175335",
+        "name": "HABCHI AICHA",
+        "birthDate": "27/02/2010"
+      },
+      {
+        "id": "12419189",
+        "massar": "F173141060",
+        "name": "MANOUNI HANANE",
+        "birthDate": "25/04/2011"
+      },
+      {
+        "id": "12572531",
+        "massar": "F173172931",
+        "name": "LAAROUBI LAILA",
+        "birthDate": "09/04/2011"
+      },
+      {
+        "id": "12190501",
+        "massar": "F174108965",
+        "name": "ATTTAOUSSI OUIAM",
+        "birthDate": "02/05/2011"
+      },
+      {
+        "id": "12570553",
+        "massar": "F174172484",
+        "name": "ERRYANI AYA",
+        "birthDate": "13/03/2011"
+      },
+      {
+        "id": "12657743",
+        "massar": "F175192829",
+        "name": "BORDO GHIZLANE",
+        "birthDate": "16/06/2011"
+      },
+      {
+        "id": "12512668",
+        "massar": "F179159266",
+        "name": "ELGOURCH ELMOSTAFA",
+        "birthDate": "12/04/2011"
+      },
+      {
+        "id": "6296019",
+        "massar": "K130495141",
+        "name": "HALBALI MOHAMED",
+        "birthDate": "25/03/2008"
+      },
+      {
+        "id": "1312577",
+        "massar": "K132141277",
+        "name": "ZANID SIHAME",
+        "birthDate": "20/09/2007"
+      },
+      {
+        "id": "4291804",
+        "massar": "K138430055",
+        "name": "LAKBIDA NAIMA",
+        "birthDate": "07/06/2007"
+      },
+      {
+        "id": "9541644",
+        "massar": "K140091956",
+        "name": "BENFARAJ RIDA",
+        "birthDate": "11/05/2008"
+      },
+      {
+        "id": "9542823",
+        "massar": "K140092132",
+        "name": "EL NOYNY NOHAILA",
+        "birthDate": "17/10/2008"
+      },
+      {
+        "id": "9643376",
+        "massar": "K142104031",
+        "name": "GHOUNI RAYANE",
+        "birthDate": "04/11/2008"
+      },
+      {
+        "id": "9599565",
+        "massar": "K148097747",
+        "name": "JALIL SARA",
+        "birthDate": "10/07/2008"
+      },
+      {
+        "id": "10272103",
+        "massar": "K151029898",
+        "name": "BOUKNADEL SAFAE",
+        "birthDate": "08/12/2009"
+      },
+      {
+        "id": "10372540",
+        "massar": "K152037843",
+        "name": "EL HATTABI ABDERRAHIM",
+        "birthDate": "07/03/2010"
+      },
+      {
+        "id": "10539446",
+        "massar": "K153051530",
+        "name": "Annak Zineb",
+        "birthDate": "05/07/2009"
+      },
+      {
+        "id": "10270148",
+        "massar": "K154029734",
+        "name": "HIMAS SIHAM",
+        "birthDate": "22/08/2009"
+      },
+      {
+        "id": "10356306",
+        "massar": "K154036865",
+        "name": "LAHRIR MOUNIR",
+        "birthDate": "18/04/2009"
+      },
+      {
+        "id": "10003184",
+        "massar": "K155011619",
+        "name": "Haji Soufiane",
+        "birthDate": "15/05/2009"
+      },
+      {
+        "id": "10152592",
+        "massar": "K155020260",
+        "name": "chalh abdelhadi",
+        "birthDate": "04/12/2009"
+      },
+      {
+        "id": "10473759",
+        "massar": "K158045508",
+        "name": "HAJJOUB ZINEB",
+        "birthDate": "24/05/2009"
+      },
+      {
+        "id": "10114178",
+        "massar": "K154017732",
+        "name": "AOUIESSE SOUFIANE",
+        "birthDate": "23/07/2009"
+      },
+      {
+        "id": "8413857",
+        "massar": "K137462930",
+        "name": "lmorsli amine",
+        "birthDate": "25/02/2008"
+      },
+      {
+        "id": "819742",
+        "massar": "K132418007",
+        "name": "el morady hassan",
+        "birthDate": "09/12/2007"
+      }
+    ],
+    "controls": [],
+    "sessions": []
+  },
+  {
+    "id": "tclshf-4",
+    "name": "TCLSHF-4",
+    "level": "Tronc Commun Lettres et Sciences Humaines- Option Français",
+    "year": "2026/2027",
+    "subject": "Informatique",
+    "source": "export_notesCC_TCLSHF-4_0030.xlsx",
+    "students": [
+      {
+        "id": "11339810",
+        "massar": "F160118515",
+        "name": "HAMI FATIMAZAHRA",
+        "birthDate": "20/09/2010"
+      },
+      {
+        "id": "11175024",
+        "massar": "F162078454",
+        "name": "BOULAKNADEL MAROUA",
+        "birthDate": "15/02/2011"
+      },
+      {
+        "id": "11175135",
+        "massar": "F163078486",
+        "name": "ECHOUBI ZINEB",
+        "birthDate": "10/10/2010"
+      },
+      {
+        "id": "11242293",
+        "massar": "F163093429",
+        "name": "CHOUIKA FOUZIA",
+        "birthDate": "26/07/2010"
+      },
+      {
+        "id": "11150110",
+        "massar": "F165073285",
+        "name": "BEATTOUCHE ABDELLAH",
+        "birthDate": "08/02/2010"
+      },
+      {
+        "id": "11116504",
+        "massar": "F166066880",
+        "name": "MARYAM BENZAOUIA",
+        "birthDate": "07/06/2010"
+      },
+      {
+        "id": "11266949",
+        "massar": "F166100254",
+        "name": "ZOUBIR Ali",
+        "birthDate": "01/01/2009"
+      },
+      {
+        "id": "11408734",
+        "massar": "F166133082",
+        "name": "MAKOUAR KHALID",
+        "birthDate": "20/11/2010"
+      },
+      {
+        "id": "11174878",
+        "massar": "F167078422",
+        "name": "ARRAMO IKRAM",
+        "birthDate": "10/10/2010"
+      },
+      {
+        "id": "11227097",
+        "massar": "F167089844",
+        "name": "Al Azaar  Hossame",
+        "birthDate": "04/10/2010"
+      },
+      {
+        "id": "11436552",
+        "massar": "F168139047",
+        "name": "AROUANI ZAHIRA",
+        "birthDate": "05/08/2010"
+      },
+      {
+        "id": "11433006",
+        "massar": "F169138460",
+        "name": "ELKASSIMI KHAOULA",
+        "birthDate": "01/02/2010"
+      },
+      {
+        "id": "11433011",
+        "massar": "F169138464",
+        "name": "EL QASIMI HAYAT",
+        "birthDate": "17/05/2010"
+      },
+      {
+        "id": "12328145",
+        "massar": "F172127808",
+        "name": "Madine Malika",
+        "birthDate": "02/02/2011"
+      },
+      {
+        "id": "12364278",
+        "massar": "F174133294",
+        "name": "CHARIFI ISLAME",
+        "birthDate": "02/04/2011"
+      },
+      {
+        "id": "12578779",
+        "massar": "F175174398",
+        "name": "SENNAF ABDELKABIR",
+        "birthDate": "14/01/2011"
+      },
+      {
+        "id": "12578784",
+        "massar": "F175174402",
+        "name": "BOUHARTI ABDELMOULA",
+        "birthDate": "15/07/2011"
+      },
+      {
+        "id": "12560773",
+        "massar": "F176170081",
+        "name": "SAYEH HABIBA",
+        "birthDate": "01/01/2012"
+      },
+      {
+        "id": "12327786",
+        "massar": "F177127773",
+        "name": "Madine  Ayoub",
+        "birthDate": "20/03/2011"
+      },
+      {
+        "id": "12634268",
+        "massar": "F177187041",
+        "name": "ELAAZRI ZAHRA",
+        "birthDate": "06/09/2011"
+      },
+      {
+        "id": "12591436",
+        "massar": "F178176941",
+        "name": "ELCATTFI SALMA",
+        "birthDate": "15/09/2011"
+      },
+      {
+        "id": "12622638",
+        "massar": "F179184266",
+        "name": "CHAKIR KHADIJA",
+        "birthDate": "11/02/2011"
+      },
+      {
+        "id": "4479159",
+        "massar": "K130014019",
+        "name": "ESSAMOURY ABDERRAHIM",
+        "birthDate": "19/01/2007"
+      },
+      {
+        "id": "8739912",
+        "massar": "K133495146",
+        "name": "KATFI AMINE",
+        "birthDate": "18/01/2008"
+      },
+      {
+        "id": "6067713",
+        "massar": "K134527535",
+        "name": "haimar khadija",
+        "birthDate": "01/10/2007"
+      },
+      {
+        "id": "9456110",
+        "massar": "K141084978",
+        "name": "EL HATTABI MALAK",
+        "birthDate": "01/01/2009"
+      },
+      {
+        "id": "9543639",
+        "massar": "K143092291",
+        "name": "FATHANE YASSINE",
+        "birthDate": "30/11/2008"
+      },
+      {
+        "id": "9456332",
+        "massar": "K144084988",
+        "name": "SAIKOUK ABDELKADER",
+        "birthDate": "04/04/2008"
+      },
+      {
+        "id": "9580916",
+        "massar": "K145095622",
+        "name": "ADWALI YASSIN",
+        "birthDate": "15/04/2008"
+      },
+      {
+        "id": "9518659",
+        "massar": "K146090114",
+        "name": "ELMISSAOUI ELMAHDI",
+        "birthDate": "14/10/2008"
+      },
+      {
+        "id": "10395627",
+        "massar": "K151039417",
+        "name": "EL AZAAR HAIBA",
+        "birthDate": "28/03/2009"
+      },
+      {
+        "id": "10408671",
+        "massar": "K151040246",
+        "name": "KHALIL TARIK",
+        "birthDate": "11/03/2010"
+      },
+      {
+        "id": "10488093",
+        "massar": "K151046852",
+        "name": "EL HAFSSI RIDA",
+        "birthDate": "12/02/2009"
+      },
+      {
+        "id": "10165992",
+        "massar": "K152021535",
+        "name": "saadi abdelhak",
+        "birthDate": "04/10/2009"
+      },
+      {
+        "id": "10210568",
+        "massar": "K153024893",
+        "name": "GUABI ADIL",
+        "birthDate": "09/02/2010"
+      },
+      {
+        "id": "10409746",
+        "massar": "K154040404",
+        "name": "RAFDI CHAIMAE",
+        "birthDate": "29/01/2010"
+      },
+      {
+        "id": "10270140",
+        "massar": "K156029727",
+        "name": "BELGHNIMA MOHAMMED",
+        "birthDate": "11/11/2009"
+      },
+      {
+        "id": "10213294",
+        "massar": "K157025322",
+        "name": "kabil aymane",
+        "birthDate": "05/01/2010"
+      },
+      {
+        "id": "10432667",
+        "massar": "K157042699",
+        "name": "BENCHMAL OMAR",
+        "birthDate": "30/05/2009"
+      },
+      {
+        "id": "10539429",
+        "massar": "K157051514",
+        "name": "El OUCHAM  OUassim",
+        "birthDate": "26/08/2009"
+      },
+      {
+        "id": "10074901",
+        "massar": "K159015169",
+        "name": "ammou bilal",
+        "birthDate": "11/10/2009"
+      },
+      {
+        "id": "9164605",
+        "massar": "N143088799",
+        "name": "lakhdar maha",
+        "birthDate": "03/11/2008"
+      }
+    ],
+    "controls": [],
+    "sessions": []
+  },
+  {
+    "id": "tcsf-7",
+    "name": "TCSF-7",
+    "level": "Tronc commun Sciences - Option Français",
+    "year": "2026/2027",
+    "subject": "Informatique",
+    "source": "export_notesCC_TCSF-7_0030.xlsx",
+    "students": [
+      {
+        "id": "12750837",
+        "massar": "F171215693",
+        "name": "BELFASSI Saif Eddine",
+        "birthDate": "17/10/2011"
+      },
+      {
+        "id": "12273522",
+        "massar": "F172120188",
+        "name": "KORRIT YOUSSEF",
+        "birthDate": "03/03/2009"
+      },
+      {
+        "id": "12363415",
+        "massar": "F174133129",
+        "name": "ACHELLOUKHI SALMA",
+        "birthDate": "28/06/2011"
+      },
+      {
+        "id": "12422062",
+        "massar": "F178141518",
+        "name": "AKCHOUR YASMINE",
+        "birthDate": "07/05/2011"
+      },
+      {
+        "id": "11242127",
+        "massar": "F160093392",
+        "name": "SAMIH YASSINE",
+        "birthDate": "31/08/2010"
+      },
+      {
+        "id": "11282689",
+        "massar": "F160104145",
+        "name": "elbahri marwa",
+        "birthDate": "29/05/2010"
+      },
+      {
+        "id": "11175066",
+        "massar": "F162078465",
+        "name": "SAYEH AYMANE",
+        "birthDate": "20/05/2010"
+      },
+      {
+        "id": "11182078",
+        "massar": "F162080040",
+        "name": "GHARIFI LAYLA",
+        "birthDate": "08/10/2010"
+      },
+      {
+        "id": "11429312",
+        "massar": "F163137541",
+        "name": "LAYLA BENAMARA",
+        "birthDate": "14/12/2010"
+      },
+      {
+        "id": "11355557",
+        "massar": "F165122437",
+        "name": "hoda omaima",
+        "birthDate": "15/06/2010"
+      },
+      {
+        "id": "11222526",
+        "massar": "F168088212",
+        "name": "BENKHAYI HAMZA",
+        "birthDate": "06/07/2010"
+      },
+      {
+        "id": "10675532",
+        "massar": "F169011514",
+        "name": "ELATIFI ABDELALI",
+        "birthDate": "10/02/2011"
+      },
+      {
+        "id": "11433010",
+        "massar": "F169138463",
+        "name": "ELFARFARI FATIMA",
+        "birthDate": "26/05/2010"
+      },
+      {
+        "id": "11433015",
+        "massar": "F169138468",
+        "name": "ELKASSIMI LAILA",
+        "birthDate": "01/02/2010"
+      },
+      {
+        "id": "11934848",
+        "massar": "F170077261",
+        "name": "Aacher islame",
+        "birthDate": "20/06/2011"
+      },
+      {
+        "id": "12563042",
+        "massar": "F170170701",
+        "name": "SEBBAR IMANE",
+        "birthDate": "23/12/2011"
+      },
+      {
+        "id": "12578772",
+        "massar": "F171174410",
+        "name": "ASSANNAF AYA",
+        "birthDate": "07/06/2010"
+      },
+      {
+        "id": "12750836",
+        "massar": "F171215692",
+        "name": "ADDAMI Yasmine",
+        "birthDate": "10/05/2011"
+      },
+      {
+        "id": "12643472",
+        "massar": "F172189481",
+        "name": "BRIBRA SANAE",
+        "birthDate": "15/02/2012"
+      },
+      {
+        "id": "12751258",
+        "massar": "F172215834",
+        "name": "LAMKHAIR Jannat",
+        "birthDate": "05/07/2011"
+      },
+      {
+        "id": "12190519",
+        "massar": "F173108983",
+        "name": "KAWTAR NAJUB",
+        "birthDate": "20/08/2011"
+      },
+      {
+        "id": "12772826",
+        "massar": "F174221153",
+        "name": "JAAOUAF HIIBA",
+        "birthDate": "17/06/2010"
+      },
+      {
+        "id": "12633421",
+        "massar": "F175186794",
+        "name": "BITTAF SARA",
+        "birthDate": "26/08/2011"
+      },
+      {
+        "id": "12761729",
+        "massar": "F175218459",
+        "name": "rajaa al haym",
+        "birthDate": "29/11/2010"
+      },
+      {
+        "id": "11934826",
+        "massar": "F177077239",
+        "name": "ZEROUALI LAHCEN",
+        "birthDate": "08/05/2011"
+      },
+      {
+        "id": "12620495",
+        "massar": "F177183704",
+        "name": "Nabil Maroua",
+        "birthDate": "12/03/2012"
+      },
+      {
+        "id": "12644303",
+        "massar": "F177189672",
+        "name": "ABRIBRA NASREDDINE",
+        "birthDate": "17/01/2011"
+      },
+      {
+        "id": "12273544",
+        "massar": "F178120202",
+        "name": "elhapani khadija",
+        "birthDate": "03/01/2011"
+      },
+      {
+        "id": "12362069",
+        "massar": "F178132905",
+        "name": "ELBAHRI ABDERRAHIM",
+        "birthDate": "11/01/2012"
+      },
+      {
+        "id": "12572545",
+        "massar": "F178173018",
+        "name": "AIMARA IMANE",
+        "birthDate": "25/01/2012"
+      },
+      {
+        "id": "12570649",
+        "massar": "F179172448",
+        "name": "LAKRAD BOUCHAIB",
+        "birthDate": "01/07/2011"
+      },
+      {
+        "id": "1803551",
+        "massar": "K130014033",
+        "name": "BELLAFNACHE AMINE",
+        "birthDate": "01/05/2007"
+      },
+      {
+        "id": "9543630",
+        "massar": "K144092282",
+        "name": "AWANE DOUAA",
+        "birthDate": "05/06/2008"
+      },
+      {
+        "id": "9591628",
+        "massar": "K146096741",
+        "name": "HAMCHACH FATIMA",
+        "birthDate": "12/09/2008"
+      },
+      {
+        "id": "10152598",
+        "massar": "K151020266",
+        "name": "belkhir ikram",
+        "birthDate": "10/05/2009"
+      },
+      {
+        "id": "10074365",
+        "massar": "K152015127",
+        "name": "essouali samira",
+        "birthDate": "02/01/2009"
+      },
+      {
+        "id": "10406589",
+        "massar": "K156039987",
+        "name": "elabyad rayan",
+        "birthDate": "01/04/2009"
+      },
+      {
+        "id": "10488166",
+        "massar": "K159046859",
+        "name": "ELHARCHI ABDERRAHMAN",
+        "birthDate": "12/06/2009"
+      }
+    ],
+    "controls": [],
+    "sessions": []
+  }
+];
