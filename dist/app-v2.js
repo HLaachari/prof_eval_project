@@ -11,6 +11,7 @@ const clone = value => JSON.parse(JSON.stringify(value));
 let data = loadData();
 let state = loadNavigationState();
 let databaseReady = false;
+let databaseLabel = "Base de données";
 let databaseSaveTimer = null;
 let databaseSaveQueue = Promise.resolve();
 let databaseRetryTimer = null;
@@ -56,6 +57,7 @@ function setDatabaseStatus(status, label) {
   element.className = `database-status ${status}`;
   element.querySelector("span").textContent = label;
 }
+function setDatabaseEngine(engine) { databaseLabel=engine==="mysql"?"MySQL":engine==="postgres"?"PostgreSQL":"Base de données"; }
 async function writeDatabase(snapshot) {
   setDatabaseStatus("syncing", "Synchronisation…");
   const response = await fetch("/api/classes", {
@@ -64,10 +66,11 @@ async function writeDatabase(snapshot) {
     body: JSON.stringify({ classes: snapshot })
   });
   if (!response.ok) { const details=await response.json().catch(()=>({}));throw new Error(details.error||"Database save failed"); }
+  const result=await response.json();setDatabaseEngine(result.engine);
   databaseReady = true;
   clearTimeout(databaseRetryTimer);
   localStorage.removeItem(DIRTY_KEY);
-  setDatabaseStatus("connected", "PostgreSQL");
+  setDatabaseStatus("connected", databaseLabel);
 }
 function scheduleDatabaseReconnect() {
   databaseReady=false;
@@ -83,7 +86,7 @@ function queueDatabaseSave() {
     databaseSaveQueue = databaseSaveQueue
       .catch(() => undefined)
       .then(() => writeDatabase(snapshot))
-      .catch(error => { console.error("Synchronisation PostgreSQL:",error);scheduleDatabaseReconnect();toast("Synchronisation interrompue — nouvelle tentative automatique"); });
+      .catch(error => { console.error("Synchronisation de la base :",error);scheduleDatabaseReconnect();toast("Synchronisation interrompue — nouvelle tentative automatique"); });
   }, 250);
 }
 function saveData() {
@@ -98,6 +101,7 @@ async function connectDatabase({silent=false}={}) {
     const response = await fetch("/api/classes", { headers: { Accept: "application/json" } });
     if (!response.ok) throw new Error("Database unavailable");
     const payload = await response.json();
+    setDatabaseEngine(payload.engine);
     if (payload.empty) {
       await writeDatabase(clone(data));
     } else {
@@ -109,10 +113,10 @@ async function connectDatabase({silent=false}={}) {
     }
     clearTimeout(databaseRetryTimer);
     databaseReady = true;
-    setDatabaseStatus("connected", "PostgreSQL");
+    setDatabaseStatus("connected", databaseLabel);
   } catch {
     scheduleDatabaseReconnect();
-    if(!silent)toast("PostgreSQL indisponible — reconnexion automatique en cours");
+    if(!silent)toast("Base de données indisponible — reconnexion automatique en cours");
   }
 }
 function initials(name) { return name.split(/\s+/).filter(Boolean).slice(0, 2).map(x => x[0]).join("").toUpperCase(); }
@@ -368,7 +372,7 @@ function openNotifications() {
   document.querySelectorAll("[data-alert-class]").forEach(x=>x.onclick=()=>{closeModal();navigateClass(x.dataset.alertClass,x.dataset.alertTab);});
 }
 function openSettings() {
-  openModal(`<div class="modal-head"><div><p class="eyebrow">Application</p><h2>Paramètres</h2></div><button class="modal-close" data-close>×</button></div><div class="setting-row"><div><strong>Base de données PostgreSQL</strong><p>Les classes, notes, présences et observations sont synchronisées avec classia_db.</p></div><span class="status-pill ${databaseReady?"validated":"draft"}">${databaseReady?"Connectée":"Reconnexion"}</span></div><div class="setting-row"><div><strong>Cache de secours du navigateur</strong><p>Une copie locale temporaire protège la saisie si la connexion est interrompue ; PostgreSQL reste la source principale.</p></div><span class="status-pill validated">Actif</span></div><div class="setting-row"><div><strong>Exporter une sauvegarde</strong><p>Télécharge une copie indépendante au format JSON.</p></div><button class="button button-small button-ghost" id="export-backup">Exporter</button></div><div class="setting-row"><div><strong>Année scolaire</strong><p>Période utilisée par les cinq classes importées.</p></div><span class="class-badge">2026 / 2027</span></div>`);
+  openModal(`<div class="modal-head"><div><p class="eyebrow">Application</p><h2>Paramètres</h2></div><button class="modal-close" data-close>×</button></div><div class="setting-row"><div><strong>Base de données ${databaseLabel}</strong><p>Les classes, notes, présences et observations sont synchronisées avec la base configurée.</p></div><span class="status-pill ${databaseReady?"validated":"draft"}">${databaseReady?"Connectée":"Reconnexion"}</span></div><div class="setting-row"><div><strong>Cache de secours du navigateur</strong><p>Une copie locale temporaire protège la saisie si la connexion est interrompue ; la base configurée reste la source principale.</p></div><span class="status-pill validated">Actif</span></div><div class="setting-row"><div><strong>Exporter une sauvegarde</strong><p>Télécharge une copie indépendante au format JSON.</p></div><button class="button button-small button-ghost" id="export-backup">Exporter</button></div><div class="setting-row"><div><strong>Année scolaire</strong><p>Période utilisée par les cinq classes importées.</p></div><span class="class-badge">2026 / 2027</span></div>`);
   document.getElementById("export-backup").onclick=exportBackup;
 }
 function exportBackup() { const blob=new Blob([JSON.stringify({exportedAt:new Date().toISOString(),classes:data},null,2)],{type:"application/json"}),url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download=`classia-sauvegarde-${TODAY}.json`;a.click();URL.revokeObjectURL(url);toast("Sauvegarde exportée"); }
