@@ -4,14 +4,13 @@ from pathlib import Path
 import openpyxl
 
 
-SOURCE_DIR = Path(r"D:\projects_D\cours_info_project\Mes classes")
 OUTPUT = Path(__file__).resolve().parents[1] / "dist" / "seed-data.js"
 FILES = [
-    "export_notesCC_TCLSHF-1_0030.xlsx",
-    "export_notesCC_TCLSHF-2_0030.xlsx",
-    "export_notesCC_TCLSHF-3_0030.xlsx",
-    "export_notesCC_TCLSHF-4_0030.xlsx",
-    "export_notesCC_TCSF-7_0030.xlsx",
+    Path(r"C:\Users\abdel\Downloads\export_notesCC_TCLSHF-1_0030 (1).xlsx"),
+    Path(r"C:\Users\abdel\Downloads\export_notesCC_TCLSHF-2_0030 (1).xlsx"),
+    Path(r"C:\Users\abdel\Downloads\export_notesCC_TCLSHF-3_0030 (1).xlsx"),
+    Path(r"C:\Users\abdel\Downloads\export_notesCC_TCLSHF-4_0030 (1).xlsx"),
+    Path(r"C:\Users\abdel\Downloads\export_notesCC_TCSF-7_0030 (1).xlsx"),
 ]
 
 
@@ -21,18 +20,27 @@ def clean(value):
 
 classes = []
 for filename in FILES:
-    sheet = openpyxl.load_workbook(SOURCE_DIR / filename, data_only=True)["NotesCC"]
+    sheet = openpyxl.load_workbook(filename, data_only=True)["NotesCC"]
     students = []
     for row in range(18, sheet.max_row + 1):
         internal_id = sheet.cell(row, 2).value
         name = sheet.cell(row, 4).value
-        if internal_id and name:
+        massar = clean(sheet.cell(row, 3).value)
+        if internal_id and massar and name:
             students.append(
                 {
                     "id": str(internal_id),
-                    "massar": clean(sheet.cell(row, 3).value),
+                    "massar": massar,
                     "name": clean(name),
                     "birthDate": clean(sheet.cell(row, 6).value),
+                    "grades": {},
+                    "activityScore": "",
+                    "participationScore": "",
+                    "bonusPoints": 0,
+                    "orderNumber": len(students) + 1,
+                    "active": True,
+                    "activeSince": "",
+                    "inactiveSince": "",
                 }
             )
 
@@ -43,10 +51,11 @@ for filename in FILES:
             "level": clean(sheet["D9"].value),
             "year": clean(sheet["D13"].value),
             "subject": clean(sheet["O11"].value).title(),
-            "source": filename,
+            "source": filename.name,
             "students": students,
             "controls": [],
             "sessions": [],
+            "observations": [],
         }
     )
 

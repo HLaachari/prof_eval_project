@@ -73,6 +73,7 @@ function isoTimestamp(value) {
 }
 
 const mysqlTimestamp = value => isoTimestamp(value).replace("T", " ").replace("Z", "");
+const dateOnly = value => value ? (value instanceof Date ? value.toISOString().slice(0, 10) : String(value).slice(0, 10)) : "";
 const numericOrEmpty = value => value === null || value === undefined ? "" : Number(value);
 const nullableNumber = value => value === "" || value === null || value === undefined ? null : Number(value);
 
@@ -93,7 +94,7 @@ export async function createDatabase(options = {}) {
     if (kind === "postgres") {
       await query(`
         CREATE TABLE IF NOT EXISTS classes (id TEXT PRIMARY KEY, name TEXT NOT NULL, subject TEXT NOT NULL DEFAULT '', level TEXT NOT NULL DEFAULT '', school_year TEXT NOT NULL DEFAULT '', grade_formula JSONB NOT NULL DEFAULT '{"weights":{}}'::jsonb);
-        CREATE TABLE IF NOT EXISTS students (class_id TEXT NOT NULL REFERENCES classes(id) ON DELETE CASCADE, id TEXT NOT NULL, name TEXT NOT NULL, massar TEXT NOT NULL DEFAULT '', birth_date TEXT NOT NULL DEFAULT '', activity_score NUMERIC(5,2), participation_score NUMERIC(5,2), bonus_points INTEGER NOT NULL DEFAULT 0, order_number INTEGER, PRIMARY KEY (class_id, id));
+        CREATE TABLE IF NOT EXISTS students (class_id TEXT NOT NULL REFERENCES classes(id) ON DELETE CASCADE, id TEXT NOT NULL, name TEXT NOT NULL, massar TEXT NOT NULL DEFAULT '', birth_date TEXT NOT NULL DEFAULT '', activity_score NUMERIC(5,2), participation_score NUMERIC(5,2), bonus_points INTEGER NOT NULL DEFAULT 0, order_number INTEGER, active BOOLEAN NOT NULL DEFAULT TRUE, active_since DATE, inactive_since DATE, PRIMARY KEY (class_id, id));
         CREATE TABLE IF NOT EXISTS continuous_columns (class_id TEXT NOT NULL REFERENCES classes(id) ON DELETE CASCADE, kind TEXT NOT NULL CHECK (kind IN ('activity', 'participation')), enabled BOOLEAN NOT NULL DEFAULT TRUE, name TEXT NOT NULL, PRIMARY KEY (class_id, kind));
         CREATE TABLE IF NOT EXISTS controls (id TEXT PRIMARY KEY, class_id TEXT NOT NULL REFERENCES classes(id) ON DELETE CASCADE, name TEXT NOT NULL, control_date DATE NOT NULL);
         CREATE TABLE IF NOT EXISTS grades (class_id TEXT NOT NULL, student_id TEXT NOT NULL, control_id TEXT NOT NULL REFERENCES controls(id) ON DELETE CASCADE, value NUMERIC(5,2) NOT NULL, PRIMARY KEY (class_id, student_id, control_id), FOREIGN KEY (class_id, student_id) REFERENCES students(class_id, id) ON DELETE CASCADE);
@@ -102,6 +103,9 @@ export async function createDatabase(options = {}) {
         CREATE TABLE IF NOT EXISTS observations (id TEXT PRIMARY KEY, class_id TEXT NOT NULL, student_id TEXT, student_ids TEXT[] NOT NULL DEFAULT '{}', note TEXT NOT NULL DEFAULT '', review_date DATE, created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(), status TEXT NOT NULL DEFAULT 'open' CHECK (status IN ('open', 'done')), FOREIGN KEY (class_id, student_id) REFERENCES students(class_id, id) ON DELETE CASCADE);
         ALTER TABLE classes ADD COLUMN IF NOT EXISTS grade_formula JSONB NOT NULL DEFAULT '{"weights":{}}'::jsonb;
         ALTER TABLE students ADD COLUMN IF NOT EXISTS order_number INTEGER;
+        ALTER TABLE students ADD COLUMN IF NOT EXISTS active BOOLEAN NOT NULL DEFAULT TRUE;
+        ALTER TABLE students ADD COLUMN IF NOT EXISTS active_since DATE;
+        ALTER TABLE students ADD COLUMN IF NOT EXISTS inactive_since DATE;
         ALTER TABLE observations ADD COLUMN IF NOT EXISTS student_ids TEXT[] NOT NULL DEFAULT '{}';
         ALTER TABLE observations ALTER COLUMN student_id DROP NOT NULL;
         UPDATE observations SET student_ids = ARRAY[student_id] WHERE cardinality(student_ids) = 0 AND student_id IS NOT NULL;
@@ -110,7 +114,7 @@ export async function createDatabase(options = {}) {
     }
     const statements = [
       `CREATE TABLE IF NOT EXISTS classes (id VARCHAR(64) PRIMARY KEY, name VARCHAR(255) NOT NULL, subject VARCHAR(255) NOT NULL DEFAULT '', level VARCHAR(255) NOT NULL DEFAULT '', school_year VARCHAR(16) NOT NULL DEFAULT '', grade_formula JSON NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci`,
-      `CREATE TABLE IF NOT EXISTS students (class_id VARCHAR(64) NOT NULL, id VARCHAR(64) NOT NULL, name VARCHAR(255) NOT NULL, massar VARCHAR(64) NOT NULL DEFAULT '', birth_date VARCHAR(10) NOT NULL DEFAULT '', activity_score DECIMAL(5,2) NULL, participation_score DECIMAL(5,2) NULL, bonus_points INT NOT NULL DEFAULT 0, order_number INT NULL, PRIMARY KEY (class_id, id), CONSTRAINT students_class_fk FOREIGN KEY (class_id) REFERENCES classes(id) ON DELETE CASCADE) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci`,
+      `CREATE TABLE IF NOT EXISTS students (class_id VARCHAR(64) NOT NULL, id VARCHAR(64) NOT NULL, name VARCHAR(255) NOT NULL, massar VARCHAR(64) NOT NULL DEFAULT '', birth_date VARCHAR(10) NOT NULL DEFAULT '', activity_score DECIMAL(5,2) NULL, participation_score DECIMAL(5,2) NULL, bonus_points INT NOT NULL DEFAULT 0, order_number INT NULL, active BOOLEAN NOT NULL DEFAULT TRUE, active_since DATE NULL, inactive_since DATE NULL, PRIMARY KEY (class_id, id), CONSTRAINT students_class_fk FOREIGN KEY (class_id) REFERENCES classes(id) ON DELETE CASCADE) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci`,
       `CREATE TABLE IF NOT EXISTS continuous_columns (class_id VARCHAR(64) NOT NULL, kind VARCHAR(32) NOT NULL, enabled BOOLEAN NOT NULL DEFAULT TRUE, name VARCHAR(255) NOT NULL, PRIMARY KEY (class_id, kind), CONSTRAINT continuous_columns_class_fk FOREIGN KEY (class_id) REFERENCES classes(id) ON DELETE CASCADE) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci`,
       `CREATE TABLE IF NOT EXISTS controls (id VARCHAR(64) PRIMARY KEY, class_id VARCHAR(64) NOT NULL, name VARCHAR(255) NOT NULL, control_date DATE NOT NULL, CONSTRAINT controls_class_fk FOREIGN KEY (class_id) REFERENCES classes(id) ON DELETE CASCADE) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci`,
       `CREATE TABLE IF NOT EXISTS grades (class_id VARCHAR(64) NOT NULL, student_id VARCHAR(64) NOT NULL, control_id VARCHAR(64) NOT NULL, value DECIMAL(5,2) NOT NULL, PRIMARY KEY (class_id, student_id, control_id), CONSTRAINT grades_student_fk FOREIGN KEY (class_id, student_id) REFERENCES students(class_id, id) ON DELETE CASCADE, CONSTRAINT grades_control_fk FOREIGN KEY (control_id) REFERENCES controls(id) ON DELETE CASCADE) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci`,
@@ -119,6 +123,11 @@ export async function createDatabase(options = {}) {
       `CREATE TABLE IF NOT EXISTS observations (id VARCHAR(64) PRIMARY KEY, class_id VARCHAR(64) NOT NULL, student_id VARCHAR(64) NULL, student_ids JSON NOT NULL, note TEXT NOT NULL, review_date DATE NULL, created_at DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3), status VARCHAR(16) NOT NULL DEFAULT 'open', CONSTRAINT observations_student_fk FOREIGN KEY (class_id, student_id) REFERENCES students(class_id, id) ON DELETE CASCADE) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci`
     ];
     for (const statement of statements) await query(statement);
+    const studentColumns = await query("SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = DATABASE() AND TABLE_NAME = 'students'");
+    const existingStudentColumns = new Set(studentColumns.rows.map(row => String(row.COLUMN_NAME || row.column_name).toLowerCase()));
+    if (!existingStudentColumns.has("active")) await query("ALTER TABLE students ADD COLUMN active BOOLEAN NOT NULL DEFAULT TRUE");
+    if (!existingStudentColumns.has("active_since")) await query("ALTER TABLE students ADD COLUMN active_since DATE NULL");
+    if (!existingStudentColumns.has("inactive_since")) await query("ALTER TABLE students ADD COLUMN inactive_since DATE NULL");
   }
 
   async function resetSchema() {
@@ -148,7 +157,7 @@ export async function createDatabase(options = {}) {
     const byClass = new Map(classes.map(item => [item.id, item]));
     const students = new Map();
     for (const row of studentRows.rows) {
-      const student = { id: row.id, name: row.name, massar: row.massar, birthDate: row.birth_date, grades: {}, activityScore: numericOrEmpty(row.activity_score), participationScore: numericOrEmpty(row.participation_score), bonusPoints: Number(row.bonus_points), orderNumber: row.order_number === null ? null : Number(row.order_number) };
+      const student = { id: row.id, name: row.name, massar: row.massar, birthDate: row.birth_date, grades: {}, activityScore: numericOrEmpty(row.activity_score), participationScore: numericOrEmpty(row.participation_score), bonusPoints: Number(row.bonus_points), orderNumber: row.order_number === null ? null : Number(row.order_number), active: row.active !== false && Number(row.active) !== 0, activeSince: dateOnly(row.active_since), inactiveSince: dateOnly(row.inactive_since) };
       byClass.get(row.class_id)?.students.push(student); students.set(`${row.class_id}\u0000${row.id}`, student);
     }
     for (const row of columnRows.rows) { const target = byClass.get(row.class_id); if (target) target.continuousColumns[row.kind] = { enabled: Boolean(row.enabled), name: row.name }; }
@@ -170,7 +179,7 @@ export async function createDatabase(options = {}) {
         await query("INSERT INTO classes (id, name, subject, level, school_year, grade_formula) VALUES ($1,$2,$3,$4,$5,$6)", [classItem.id, classItem.name, classItem.subject || "", classItem.level || "", classItem.year || "", kind === "mysql" ? JSON.stringify(classItem.gradeFormula || { weights: {} }) : classItem.gradeFormula || { weights: {} }], client);
         const columns = classItem.continuousColumns || {};
         for (const [columnKind, fallback] of [["activity", "Activités"], ["participation", "Participation"]]) { const column = columns[columnKind] || { enabled: true, name: fallback }; await query("INSERT INTO continuous_columns (class_id, kind, enabled, name) VALUES ($1,$2,$3,$4)", [classItem.id, columnKind, column.enabled !== false, column.name || fallback], client); }
-        for (const student of classItem.students || []) await query("INSERT INTO students (class_id,id,name,massar,birth_date,activity_score,participation_score,bonus_points,order_number) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9)", [classItem.id, student.id, student.name, student.massar || "", student.birthDate || "", nullableNumber(student.activityScore), nullableNumber(student.participationScore), Number(student.bonusPoints) || 0, nullableNumber(student.orderNumber)], client);
+        for (const student of classItem.students || []) await query("INSERT INTO students (class_id,id,name,massar,birth_date,activity_score,participation_score,bonus_points,order_number,active,active_since,inactive_since) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12)", [classItem.id, student.id, student.name, student.massar || "", student.birthDate || "", nullableNumber(student.activityScore), nullableNumber(student.participationScore), Number(student.bonusPoints) || 0, nullableNumber(student.orderNumber), student.active !== false, student.activeSince || null, student.inactiveSince || null], client);
         for (const control of classItem.controls || []) await query("INSERT INTO controls (id,class_id,name,control_date) VALUES ($1,$2,$3,$4)", [control.id, classItem.id, control.name, control.date], client);
         for (const student of classItem.students || []) for (const [controlId, value] of Object.entries(student.grades || {})) if (value !== "" && value !== null && value !== undefined) await query("INSERT INTO grades (class_id,student_id,control_id,value) VALUES ($1,$2,$3,$4)", [classItem.id, student.id, controlId, Number(value)], client);
         for (const session of classItem.sessions || []) { await query("INSERT INTO sessions (id,class_id,session_date,topic,status) VALUES ($1,$2,$3,$4,$5)", [session.id, classItem.id, session.date, session.topic || "", session.status === "validated" ? "validated" : "draft"], client); for (const [studentId, attendance] of Object.entries(session.attendance || {})) await query("INSERT INTO attendance (session_id,class_id,student_id,h1,h2) VALUES ($1,$2,$3,$4,$5)", [session.id, classItem.id, studentId, attendance.h1 || null, attendance.h2 || null], client); }

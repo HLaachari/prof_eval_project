@@ -513,6 +513,40 @@ tbody tr:hover { background: #fbfcfa; }
 [data-theme="dark"] .date-input, [data-theme="dark"] .date-popover, [data-theme="dark"] .calendar-head button { background: #1d2e24; color: var(--ink); border-color: var(--line); }
 [data-theme="dark"] .calendar-day:hover { background: #294033; color: #8ee3ad; }
 [data-theme="dark"] .calendar-day.selected { background: #43b878; color: #08160e; }
+.teaching-calendar { margin-bottom: 18px; padding: 20px; border: 1px solid var(--line); border-radius: 20px; background: var(--paper); box-shadow: var(--shadow-soft); overflow: hidden; }
+.teaching-calendar-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; margin-bottom: 16px; }
+.teaching-calendar-head h2 { margin: 0 0 4px; font-size: 19px; }
+.teaching-calendar-head p { margin: 0; color: var(--muted); font-size: 11px; }
+.calendar-nav { display: flex; gap: 7px; }
+.calendar-nav button { width: 34px; height: 34px; border: 1px solid var(--line); border-radius: 10px; background: var(--paper); color: var(--ink); cursor: pointer; font-size: 21px; }
+.teaching-calendar-track { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(250px, 1fr); gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: thin; padding-bottom: 8px; }
+.teaching-month { min-height: 278px; padding: 16px; border: 1px solid var(--line); border-radius: 15px; background: #fbfcfa; scroll-snap-align: start; }
+.teaching-month header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+.teaching-month h3 { margin: 0; font-size: 14px; }
+.teaching-month h3 span { color: var(--muted); font-weight: 500; }
+.teaching-month header > strong { min-width: 25px; height: 25px; padding: 0 7px; display: grid; place-items: center; border-radius: 999px; background: var(--lime-soft); color: var(--green); font-size: 11px; }
+.teaching-month .calendar-days { display: grid; grid-template-columns: repeat(7, 1fr); gap: 5px; }
+.teaching-month .calendar-day { position: relative; aspect-ratio: 1; display: grid; place-items: center; border-radius: 8px; background: transparent; color: var(--ink); cursor: default; font-size: 10px; font-weight: 650; }
+.teaching-month .calendar-day.empty { visibility: hidden; }
+.teaching-month .calendar-day.future { opacity: .25; }
+.teaching-month .calendar-day.taught { background: var(--green); color: white; box-shadow: 0 4px 9px rgba(35,100,71,.18); }
+.teaching-month .calendar-day.today { box-shadow: inset 0 0 0 2px var(--green); }
+.teaching-month .calendar-day.taught.today { box-shadow: inset 0 0 0 2px white, 0 4px 9px rgba(35,100,71,.18); }
+.teaching-month .calendar-day b { position: absolute; top: -3px; right: -3px; min-width: 14px; height: 14px; display: grid; place-items: center; border-radius: 50%; background: var(--lime); color: var(--green-dark); font-size: 8px; }
+.calendar-legend { display: flex; gap: 16px; margin-top: 10px; color: var(--muted); font-size: 10px; }
+.calendar-legend span { display: flex; align-items: center; gap: 6px; }
+.calendar-legend i { width: 12px; height: 12px; border-radius: 4px; background: var(--green); }
+.calendar-legend i.today { background: transparent; border: 2px solid var(--green); }
+.former-students { margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--line); }
+.former-students-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
+.former-students-head h3 { margin: 0 0 4px; font-size: 16px; }
+.former-students-head p { margin: 0; color: var(--muted); font-size: 11px; }
+.former-students-head > span { min-width: 28px; height: 28px; display: grid; place-items: center; border-radius: 999px; background: #f3e6e2; color: var(--red); font-weight: 800; }
+.former-students details > summary { width: fit-content; margin-bottom: 12px; padding: 9px 12px; border: 1px solid var(--line); border-radius: 10px; cursor: pointer; color: var(--green); font-size: 11px; font-weight: 800; }
+.former-student-row { opacity: .76; background: #fafafa; }
+[data-theme="dark"] .teaching-calendar, [data-theme="dark"] .teaching-month { background: #1d2e24; border-color: var(--line); }
+[data-theme="dark"] .calendar-nav button { background: #24392c; border-color: var(--line); }
+[data-theme="dark"] .former-student-row { background: #211f1d; }
 .modal-actions { display: flex; justify-content: flex-end; gap: 9px; margin-top: 22px; }
 .toast { position: fixed; right: 25px; bottom: 25px; z-index: 150; color: white; background: var(--green-dark); padding: 12px 16px; border-radius: 12px; box-shadow: var(--shadow); font-size: 12px; animation: toast-in .2s ease; }
 @keyframes toast-in { from { transform: translateY(8px); opacity: 0; } }
@@ -551,6 +585,8 @@ tbody tr:hover { background: #fbfcfa; }
   .comparison-highlights { grid-template-columns: 1fr; }
   .attendance-summary-grid { grid-template-columns: 1fr; }
   .attendance-group { min-height: 280px; }
+  .teaching-calendar { padding: 15px; }
+  .teaching-calendar-track { grid-auto-columns: minmax(235px, 82vw); }
   .histogram { gap: 4px; padding-inline: 4px; }
   .histogram-bin > span { font-size: 8px; transform: rotate(-35deg); transform-origin: center; }
   .observation-row { align-items: flex-start; flex-wrap: wrap; }
