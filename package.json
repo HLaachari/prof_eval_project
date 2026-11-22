@@ -2,10 +2,12 @@
   "name": "classia",
   "version": "1.0.0",
   "private": true,
+  "license": "MIT",
   "type": "module",
   "scripts": {
     "start": "node server.mjs",
     "check": "node --check server.mjs && node --check database.mjs && node --check tools/migrate-database.mjs && node --check dist/app-v2.js",
+    "test": "node --test",
     "migrate:database": "node tools/migrate-database.mjs"
   },
   "dependencies": {
